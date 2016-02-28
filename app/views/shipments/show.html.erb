@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<% if @shipment.in_usa? %>
+<h1>SHIPMENT IN USA</h1>
+<% elsif @shipment.in_canada? %>
+<h1>SHIPMENT IN CANADA</h1>
+<% elsif @shipment.at_border? %>
+<h1>SHIPMENT AT BORDER</h1>
+<% end %>
+
+
+<title>Import Documents</title>
+
+<header>
+  <h1>CF 7533 - Inward Cargo Manifest for Vehicles Under Five Tons, Ferry, Train, Car, Vehicle, etc.</h1>
+  <div class="subheader">
+    <h2>Department Of the Treasury</h2>
+    <h3>United States Customs Service</h3>
+    <h4>OBM No. 1515-0049 - 19CFR 123.4, 123.7, 123.61</h4>
+  </div>
+</header>
+<form>
+		<ul>
+				  <li>
+						    <input id="customs-manifest-in-bond-number" type="text" />
+						    <label for="customs-manifest-in-bond-number">Customs Manifest/In Bond Number</label>
+  				</li>
+<li>
+  <input id="page-no" type="text" />
+  <label for="page-no">Page No.</label>
+</li>
+		</ul>
+<ul>
+  <li>
+  <input id="name-importing-convevance" type="text" />
+  <label for="name-importing-convevance">1. Name or Number and Description of Importing Convevance</label>
+</li>
+<li>
+  <input id="name-person-in-charge" type="text" />
+  <label for="name-person-in-charge">2. Name of Master or Person in Charge</label>
+</li>
+<li>
+  <input id="name-address-owner" type="text" />
+  <label for="name-address-owner">3. Name and Address of Owner</label>
+</li>
+<li>
+  <input id="foreign-port-of-landing" type="text" />
+  <label for="foreign-port-of-landing">4. Foreign Port of Landing</label>
+</li>
+<li>
+  <input id="us-port-of-destination" type="text" />
+  <label for="us-port-of-destination">5. US Port o Destination</label>
+</li>
+<li>
+  <input id="port-of-arrival" type="text" />
+  <label for="port-of-arrival">6. Port of Arrival</label>
+</li>
+<li>
+  <input id="date-of-arrival" type="text" />
+  <label for="date-of-arrival">7. Date of Arrival</label>
+</li>
+		</ul>
+  <ul>
+  <li>
+    <input id="bill-of-lading" type="text" />
+    <label for="bill-of-lading">Bill of Lading or Marks &amp; Numbers or Address of Consignee on Packages</label>
+  </li>
+  <li>
+    <input id="car-number" type="text" />
+    <label for="car-number">Car Number and Initials</label>
+  </li>
+  <li>
+    <input id="number-and-gross-weight" type="text" />
+    <label for="number-and-gross-weight">Number and Gross Weight (in kilos or pounds) of Packages and Description of Goods</label>
+  </li>
+  <li>
+    <input id="name-of-consignee" type="text" />
+    <label for="name-of-consignee">Name of Consignee</label>
+  </li>  
+</ul>
+<div class="item-footer">
+  <a href="#">Delete</a>
+  <a href="#">Add Another Item</a>
+</div>
+<div class="manifest-footer">
+  <a href="#">Certify Manifest</a>
+</div>
+</form>
+
+
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>

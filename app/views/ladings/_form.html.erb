@@ -1,0 +1,17 @@
+<%= form_for(@lading) do |f| %>
+  <% if @lading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lading.errors.count, "error") %> prohibited this lading from being saved:</h2>
+
+      <ul>
+      <% @lading.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

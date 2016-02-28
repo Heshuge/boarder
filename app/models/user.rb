@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :trucker, :security, :customs, :admin]
   after_initialize :set_default_role, :if => :new_record?
   after_create :sign_up_for_mailing_list
 
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def sign_up_for_mailing_list
-    MailingListSignupJob.perform_later(self)
+    MailingListSignupJob.perform_now(self)
   end
 
   def subscribe
