@@ -18,7 +18,7 @@ class ManifestsControllerTest < ActionController::TestCase
 
   test "should create manifest" do
     assert_difference('Manifest.count') do
-      post :create, manifest: {  }
+      post :create, manifest: { billoflading: @manifest.billoflading, carnumber: @manifest.carnumber, dateofarrival: @manifest.dateofarrival, foreignportoflanding: @manifest.foreignportoflanding, nameaddressowner: @manifest.nameaddressowner, nameimportingconvevance: @manifest.nameimportingconvevance, nameofconsignee: @manifest.nameofconsignee, namepersonincharge: @manifest.namepersonincharge, numberandgrossweight: @manifest.numberandgrossweight, portofarrival: @manifest.portofarrival, usportofdestination: @manifest.usportofdestination }
     end
 
     assert_redirected_to manifest_path(assigns(:manifest))
@@ -35,7 +35,7 @@ class ManifestsControllerTest < ActionController::TestCase
   end
 
   test "should update manifest" do
-    patch :update, id: @manifest, manifest: {  }
+    patch :update, id: @manifest, manifest: { billoflading: @manifest.billoflading, carnumber: @manifest.carnumber, dateofarrival: @manifest.dateofarrival, foreignportoflanding: @manifest.foreignportoflanding, nameaddressowner: @manifest.nameaddressowner, nameimportingconvevance: @manifest.nameimportingconvevance, nameofconsignee: @manifest.nameofconsignee, namepersonincharge: @manifest.namepersonincharge, numberandgrossweight: @manifest.numberandgrossweight, portofarrival: @manifest.portofarrival, usportofdestination: @manifest.usportofdestination }
     assert_redirected_to manifest_path(assigns(:manifest))
   end
 

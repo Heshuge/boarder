@@ -69,6 +69,6 @@ class ManifestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manifest_params
-      params.fetch(:manifest, {})
+      params.require(:manifest).permit(:nameimportingconvevance, :namepersonincharge, :nameaddressowner, :foreignportoflanding, :usportofdestination, :portofarrival, :dateofarrival, :billoflading, :carnumber, :numberandgrossweight, :nameofconsignee)
     end
 end

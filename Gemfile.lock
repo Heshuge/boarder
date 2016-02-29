@@ -187,7 +187,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   quiet_assets
-  rails (= 4.2.5)
+  rails
   rails_layout
   sass-rails (~> 5.0)
   spring

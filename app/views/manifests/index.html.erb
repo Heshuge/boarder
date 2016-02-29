@@ -5,6 +5,17 @@
 <table>
   <thead>
     <tr>
+      <th>Nameimportingconvevance</th>
+      <th>Namepersonincharge</th>
+      <th>Nameaddressowner</th>
+      <th>Foreignportoflanding</th>
+      <th>Usportofdestination</th>
+      <th>Portofarrival</th>
+      <th>Dateofarrival</th>
+      <th>Billoflading</th>
+      <th>Carnumber</th>
+      <th>Numberandgrossweight</th>
+      <th>Nameofconsignee</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +23,17 @@
   <tbody>
     <% @manifests.each do |manifest| %>
       <tr>
+        <td><%= manifest.nameimportingconvevance %></td>
+        <td><%= manifest.namepersonincharge %></td>
+        <td><%= manifest.nameaddressowner %></td>
+        <td><%= manifest.foreignportoflanding %></td>
+        <td><%= manifest.usportofdestination %></td>
+        <td><%= manifest.portofarrival %></td>
+        <td><%= manifest.dateofarrival %></td>
+        <td><%= manifest.billoflading %></td>
+        <td><%= manifest.carnumber %></td>
+        <td><%= manifest.numberandgrossweight %></td>
+        <td><%= manifest.nameofconsignee %></td>
         <td><%= link_to 'Show', manifest %></td>
         <td><%= link_to 'Edit', edit_manifest_path(manifest) %></td>
         <td><%= link_to 'Destroy', manifest, method: :delete, data: { confirm: 'Are you sure?' } %></td>

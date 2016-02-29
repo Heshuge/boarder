@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<head>
+    <meta charset="utf-8">
+    <title>Import Documents</title>
+
+</head>
+<%= stylesheet_link_tag params[:controller] %>
+
 <% if @shipment.in_usa? %>
 <h1>SHIPMENT IN USA</h1>
 <% elsif @shipment.in_canada? %>
@@ -9,84 +16,188 @@
 <% end %>
 
 
-<title>Import Documents</title>
+<% if @shipment.in_usa? or @shipment.in_canada? %>
 
-<header>
-  <h1>CF 7533 - Inward Cargo Manifest for Vehicles Under Five Tons, Ferry, Train, Car, Vehicle, etc.</h1>
-  <div class="subheader">
-    <h2>Department Of the Treasury</h2>
-    <h3>United States Customs Service</h3>
-    <h4>OBM No. 1515-0049 - 19CFR 123.4, 123.7, 123.61</h4>
-  </div>
-</header>
 <form>
-		<ul>
-				  <li>
-						    <input id="customs-manifest-in-bond-number" type="text" />
-						    <label for="customs-manifest-in-bond-number">Customs Manifest/In Bond Number</label>
-  				</li>
+<ul>
+  <li>
+    <%= text_field_tag 'customs-manifest-in-bond-number', 'Manifest #1646171', disabled: true %>
+		<label for="customs-manifest-in-bond-number">Customs Manifest/In Bond Number</label>
+	</li>
 <li>
-  <input id="page-no" type="text" />
+    <%= text_field_tag 'page-no', '38', disabled: true %>
   <label for="page-no">Page No.</label>
 </li>
 		</ul>
 <ul>
   <li>
-  <input id="name-importing-convevance" type="text" />
+    <%= text_field_tag 'name-importing-convevance', @manifests.first.nameimportingconvevance, disabled: true %>
   <label for="name-importing-convevance">1. Name or Number and Description of Importing Convevance</label>
 </li>
 <li>
-  <input id="name-person-in-charge" type="text" />
+    <%= text_field_tag 'name-person-in-charge', @manifests.first.namepersonincharge, disabled: true %>
   <label for="name-person-in-charge">2. Name of Master or Person in Charge</label>
 </li>
 <li>
-  <input id="name-address-owner" type="text" />
+    <%= text_field_tag 'name-address-owner', @manifests.first.nameaddressowner, disabled: true %>
   <label for="name-address-owner">3. Name and Address of Owner</label>
 </li>
 <li>
-  <input id="foreign-port-of-landing" type="text" />
+    <%= text_field_tag 'foreign-port-of-landing', @manifests.first.foreignportoflanding, disabled: true %>
   <label for="foreign-port-of-landing">4. Foreign Port of Landing</label>
 </li>
 <li>
-  <input id="us-port-of-destination" type="text" />
-  <label for="us-port-of-destination">5. US Port o Destination</label>
+    <%= text_field_tag 'us-port-of-destination', @manifests.first.usportofdestination, disabled: true %>
+  <label for="us-port-of-destination">5. US Port of Destination</label>
 </li>
 <li>
-  <input id="port-of-arrival" type="text" />
+    <%= text_field_tag 'port-of-arrival', @manifests.first.portofarrival, disabled: true %>
   <label for="port-of-arrival">6. Port of Arrival</label>
 </li>
 <li>
-  <input id="date-of-arrival" type="text" />
+    <%= text_field_tag 'date-of-arrival', @manifests.first.dateofarrival, disabled: true %>
   <label for="date-of-arrival">7. Date of Arrival</label>
 </li>
 		</ul>
   <ul>
   <li>
-    <input id="bill-of-lading" type="text" />
+    <%= text_field_tag 'bill-of-lading', @manifests.first.billoflading, disabled: true %>
     <label for="bill-of-lading">Bill of Lading or Marks &amp; Numbers or Address of Consignee on Packages</label>
   </li>
   <li>
-    <input id="car-number" type="text" />
+    <%= text_field_tag 'car-number', @manifests.first.carnumber, disabled: true %>
     <label for="car-number">Car Number and Initials</label>
   </li>
   <li>
-    <input id="number-and-gross-weight" type="text" />
+    <%= text_field_tag 'number-and-gross-weight', @manifests.first.numberandgrossweight, disabled: true %>
     <label for="number-and-gross-weight">Number and Gross Weight (in kilos or pounds) of Packages and Description of Goods</label>
   </li>
   <li>
-    <input id="name-of-consignee" type="text" />
+    <%= text_field_tag 'name-of-consignee', @manifests.first.nameofconsignee, disabled: true %>
     <label for="name-of-consignee">Name of Consignee</label>
   </li>  
 </ul>
-<div class="item-footer">
-  <a href="#">Delete</a>
-  <a href="#">Add Another Item</a>
-</div>
 <div class="manifest-footer">
   <a href="#">Certify Manifest</a>
 </div>
 </form>
 
+<% elsif @shipment.at_border? %>
+
+  <body>
+    <header>
+      <h1>CF 7533 - Inward Cargo Manifest for Vehicles Under Five Tons, Ferry, Train, Car, Vehicle, etc.</h1>
+      <div class="subheader">
+        <h2>Department Of the Treasury</h2>
+        <h3>United States Customs Service</h3>
+        <h4>OBM No. 1515-0049 - 19CFR 123.4, 123.7, 123.61</h4>
+      </div>
+    </header>
+    <section class="section-slider">
+      <ol class="slider-list">
+        <li class="slide">
+          <ul>
+            <h3>Package Info</h3>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="bill-of-lading" type="text" />
+              <label for="bill-of-lading">Bill of Lading or Marks &amp; Numbers or Address of Consignee on Packages</label>
+            </li>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="car-number" type="text" />
+              <label for="car-number">Car Number and Initials</label>
+            </li>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="number-and-gross-weight" type="text" />
+              <label for="number-and-gross-weight">Number and Gross Weight (in kilos or pounds) of Packages and Description of Goods</label>
+            </li>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="name-of-consignee" type="text" />
+              <label for="name-of-consignee">Name of Consignee</label>
+            </li>
+          </ul>
+        </li>
+        <li class="slide">
+          <ul>
+            <h3>Package Info</h3>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="bill-of-lading" type="text" />
+              <label for="bill-of-lading">Bill of Lading or Marks &amp; Numbers or Address of Consignee on Packages</label>
+            </li>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="car-number" type="text" />
+              <label for="car-number">Car Number and Initials</label>
+            </li>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="number-and-gross-weight" type="text" />
+              <label for="number-and-gross-weight">Number and Gross Weight (in kilos or pounds) of Packages and Description of Goods</label>
+            </li>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="name-of-consignee" type="text" />
+              <label for="name-of-consignee">Name of Consignee</label>
+            </li>
+          </ul>
+        </li>
+        <li class="slide">
+          <ul>
+            <h3>Manifest Info (cont.)</h3>
+            <li>
+              <%= text_field_tag 'name-importing-convevance', @manifests.first.nameimportingconvevance, disabled: true %>
+              <label for="name-importing-convevance">1. Name or Number and Description of Importing Convevance</label>
+            </li>
+            <li>
+              <%= text_field_tag 'name-person-in-charge', @manifests.first.namepersonincharge, disabled: true %>
+              <label for="name-person-in-charge">2. Name of Master or Person in Charge</label>
+            </li>
+            <li>
+              <%= text_field_tag 'name-address-owner', @manifests.first.nameaddressowner, disabled: true %>
+              <label for="name-address-owner">3. Name and Address of Owner</label>
+            </li>
+            <li>
+              <%= text_field_tag 'foreign-port-of-landing', @manifests.first.foreignportoflanding, disabled: true %>
+              <label for="foreign-port-of-landing">4. Foreign Port of Landing</label>
+            </li>
+            <li>
+              <%= text_field_tag 'us-port-of-destination', @manifests.first.usportofdestination, disabled: true %>
+              <label for="us-port-of-destination">5. US Port of Destination</label>
+            </li>
+            <li>
+              <%= text_field_tag 'port-of-arrival', @manifests.first.portofarrival, disabled: true %>
+              <label for="port-of-arrival">6. Port of Arrival</label>
+            </li>
+            <li>
+              <%= text_field_tag 'date-of-arrival', @manifests.first.dateofarrival, disabled: true %>
+              <label for="date-of-arrival">7. Date of Arrival</label>
+            </li>
+          </ul>
+        </li>
+        <li class="slide">
+          <ul>
+            <h3>Manifest Info</h3>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="customs-manifest-in-bond-number" type="text" />
+              <label for="customs-manifest-in-bond-number">Customs Manifest/In Bond Number</label>
+            </li>
+            <li>
+              <input readonly="readonly" value="{field_value}" id="page-no" type="text" />
+              <label for="page-no">Page No.</label>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+  <div class="manifest-footer">
+    <a href="#">Approve Manifest</a>
+  </div>
+
+      <section class="instructions">
+        Swipe Left to REJECT, Right to ACCEPT or Down to SKIP  (or use Arrow Keys: &larr; &rarr; &darr; )
+      </section>
+
+  </body>
+
+
+<% end %>
 
 <%= link_to 'Edit', edit_shipment_path(@shipment) %> |
 <%= link_to 'Back', shipments_path %>

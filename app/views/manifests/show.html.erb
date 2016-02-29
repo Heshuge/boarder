@@ -1,75 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<title>Import Documents</title>
+<p>
+  <strong>Nameimportingconvevance:</strong>
+  <%= @manifest.nameimportingconvevance %>
+</p>
 
-<header>
-  <h1>CF 7533 - Inward Cargo Manifest for Vehicles Under Five Tons, Ferry, Train, Car, Vehicle, etc.</h1>
-  <div class="subheader">
-    <h2>Department Of the Treasury</h2>
-    <h3>United States Customs Service</h3>
-    <h4>OBM No. 1515-0049 - 19CFR 123.4, 123.7, 123.61</h4>
-  </div>
-</header>
-<form>
-		<ul>
-				  <li>
-						    <input id="customs-manifest-in-bond-number" type="text" />
-						    <label for="customs-manifest-in-bond-number">Customs Manifest/In Bond Number</label>
-  				</li>
-<li>
-  <input id="page-no" type="text" />
-  <label for="page-no">Page No.</label>
-</li>
-		</ul>
-<ul>
-  <li>
-  <input id="name-importing-convevance" type="text" />
-  <label for="name-importing-convevance">1. Name or Number and Description of Importing Convevance</label>
-</li>
-<li>
-  <input id="name-person-in-charge" type="text" />
-  <label for="name-person-in-charge">2. Name of Master or Person in Charge</label>
-</li>
-<li>
-  <input id="name-address-owner" type="text" />
-  <label for="name-address-owner">3. Name and Address of Owner</label>
-</li>
-<li>
-  <input id="foreign-port-of-landing" type="text" />
-  <label for="foreign-port-of-landing">4. Foreign Port of Landing</label>
-</li>
-<li>
-  <input id="us-port-of-destination" type="text" />
-  <label for="us-port-of-destination">5. US Port o Destination</label>
-</li>
-<li>
-  <input id="port-of-arrival" type="text" />
-  <label for="port-of-arrival">6. Port of Arrival</label>
-</li>
-<li>
-  <input id="date-of-arrival" type="text" />
-  <label for="date-of-arrival">7. Date of Arrival</label>
-</li>
-		</ul>
-  <ul>
-  <li>
-    <input id="bill-of-lading" type="text" />
-    <label for="bill-of-lading">Bill of Lading or Marks &amp; Numbers or Address of Consignee on Packages</label>
-  </li>
-  <li>
-    <input id="car-number" type="text" />
-    <label for="car-number">Car Number and Initials</label>
-  </li>
-  <li>
-    <input id="number-and-gross-weight" type="text" />
-    <label for="number-and-gross-weight">Number and Gross Weight (in kilos or pounds) of Packages and Description of Goods</label>
-  </li>
-  <li>
-    <input id="name-of-consignee" type="text" />
-    <label for="name-of-consignee">Name of Consignee</label>
-  </li>  
-</ul>
-</form>
+<p>
+  <strong>Namepersonincharge:</strong>
+  <%= @manifest.namepersonincharge %>
+</p>
+
+<p>
+  <strong>Nameaddressowner:</strong>
+  <%= @manifest.nameaddressowner %>
+</p>
+
+<p>
+  <strong>Foreignportoflanding:</strong>
+  <%= @manifest.foreignportoflanding %>
+</p>
+
+<p>
+  <strong>Usportofdestination:</strong>
+  <%= @manifest.usportofdestination %>
+</p>
+
+<p>
+  <strong>Portofarrival:</strong>
+  <%= @manifest.portofarrival %>
+</p>
+
+<p>
+  <strong>Dateofarrival:</strong>
+  <%= @manifest.dateofarrival %>
+</p>
+
+<p>
+  <strong>Billoflading:</strong>
+  <%= @manifest.billoflading %>
+</p>
+
+<p>
+  <strong>Carnumber:</strong>
+  <%= @manifest.carnumber %>
+</p>
+
+<p>
+  <strong>Numberandgrossweight:</strong>
+  <%= @manifest.numberandgrossweight %>
+</p>
+
+<p>
+  <strong>Nameofconsignee:</strong>
+  <%= @manifest.nameofconsignee %>
+</p>
 
 <%= link_to 'Edit', edit_manifest_path(@manifest) %> |
 <%= link_to 'Back', manifests_path %>

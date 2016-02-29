@@ -11,6 +11,7 @@
 
   <tbody>
     <% @shipments.each do |shipment| %>
+      <% if current_user.try(:admin?) or current_user.try(:trucker?) or shipment.at_border? %>
       <tr>
         <td><%= shipment.id %> |</td> 
         <td>
@@ -26,6 +27,7 @@
         <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
         <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

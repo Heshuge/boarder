@@ -10,6 +10,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/1
   # GET /shipments/1.json
   def show
+    @manifests = Manifest.all
   end
 
   # GET /shipments/new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228011512) do
+ActiveRecord::Schema.define(version: 20160229025004) do
 
   create_table "deliveries", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -29,8 +29,19 @@ ActiveRecord::Schema.define(version: 20160228011512) do
   end
 
   create_table "manifests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "nameimportingconvevance"
+    t.string   "namepersonincharge"
+    t.string   "nameaddressowner"
+    t.string   "foreignportoflanding"
+    t.string   "usportofdestination"
+    t.string   "portofarrival"
+    t.date     "dateofarrival"
+    t.string   "billoflading"
+    t.string   "carnumber"
+    t.decimal  "numberandgrossweight"
+    t.string   "nameofconsignee"
   end
 
   create_table "shipments", force: :cascade do |t|

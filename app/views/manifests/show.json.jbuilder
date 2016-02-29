@@ -1,1 +1,1 @@
-json.extract! @manifest, :id, :created_at, :updated_at
+json.extract! @manifest, :id, :nameimportingconvevance, :namepersonincharge, :nameaddressowner, :foreignportoflanding, :usportofdestination, :portofarrival, :dateofarrival, :billoflading, :carnumber, :numberandgrossweight, :nameofconsignee, :created_at, :updated_at
